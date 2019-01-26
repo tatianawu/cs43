@@ -30,6 +30,7 @@ stimes' :: (Semigroup a, Integral b) => b -> a -> a
 stimes' n x
   | n <= 0    = error "positive multiplier expected"
   | n == 1    = x
-  | even n    = stimes' (n `div` 2) x <> stimes' (n `div` 2) x
-  | otherwise = stimes' (n `div` 2 + 1) x <> stimes' (n `div` 2) x
+  | even n    = stimes' m x <> stimes' m x
+  | otherwise = stimes' (m + 1) x <> stimes' m x
+  where m = n `div` 2
 
