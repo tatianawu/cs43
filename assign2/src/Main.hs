@@ -2,11 +2,10 @@ module Main where
 
 import Data.Semigroup (stimes) -- stimes not imported by default
 
-
 main :: IO ()
 main = do
-  putStrLn "hello world"
-
+  putStrLn "Assignment 2"
+  putStrLn "Tatiana Wu"
 
 newtype Product = Product Int deriving (Show)
 newtype Sum = Sum Int deriving (Show)
@@ -24,7 +23,6 @@ instance Semigroup Product where
     stimes n (Product x)
       | n <= 0    = error "positive multiplier expected"
       | otherwise = Product $ x ^ (fromIntegral n)
-
 
 stimes' :: (Semigroup a, Integral b) => b -> a -> a
 stimes' n x
